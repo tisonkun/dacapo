@@ -1,0 +1,47 @@
+---
+import type {CollectionEntry} from "astro:content";
+import {getCollection} from "astro:content";
+import BaseLayout from "@src/layouts/BaseLayout.astro";
+import {titleCase} from "title-case";
+import _ from "lodash";
+import DateTile from "../../components/DateTile.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection('posts')
+    let tags: Record<string, CollectionEntry<'posts'>[]> = {}
+    for (let post of posts) {
+        for (let tag of post.data.tags) {
+            if (!tags[tag]) {
+                tags[tag] = []
+            }
+            tags[tag].push(post)
+        }
+    }
+    return _.entries(tags).map(([tag, posts]) => ({
+        params: {tag: tag}, props: {posts, tag}
+    }))
+}
+
+const {posts, tag}: {
+    posts: CollectionEntry<'posts'>[]
+    tag: string,
+} = Astro.props;
+---
+
+<BaseLayout title={titleCase(tag)}>
+    <h1 class="text-center text-5xl">{titleCase(tag)}</h1>
+    <ul>
+        {posts.map((entry) => (
+                <li class="grid grid-cols-12 mt-8">
+                    <DateTile date={entry.data.date}/>
+                    <div class="col-span-10">
+                        <h3 class="text-2xl leading-relaxed mb-0 mt-0">
+                            <a href={`/posts/${entry.slug}`}>
+                                {entry.data.title}
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+        ))}
+    </ul>
+</BaseLayout>

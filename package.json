@@ -1,0 +1,35 @@
+{
+  "name": "nightsky-blog",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/mdx": "^2.2.2",
+    "@astrojs/sitemap": "^3.1.2",
+    "@astrojs/tailwind": "^5.1.0",
+    "@fontsource-variable/open-sans": "^5.0.28",
+    "@microflash/remark-callout-directives": "^4.1.0",
+    "astro": "^4.5.12",
+    "lodash": "^4.17.21",
+    "remark-directive": "^3.0.0",
+    "sharp": "^0.33.3",
+    "shiki": "^1.2.3",
+    "tailwindcss": "^3.4.3",
+    "title-case": "^4.3.1",
+    "typescript": "^5.4.3"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.0",
+    "@types/mdast": "^4.0.2",
+    "@types/node": "^20.12.2"
+  },
+  "packageManager": "pnpm@8.15.5"
+}

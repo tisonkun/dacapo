@@ -1,0 +1,12 @@
+---
+import BaseLayout from "@src/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="404">
+    <div class="single container">
+        <div class="text-center">
+            <h2>404: Not Found</h2>
+            <p>Path: {Astro.url.pathname}</p>
+        </div>
+    </div>
+</BaseLayout>

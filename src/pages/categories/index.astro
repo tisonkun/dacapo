@@ -1,0 +1,22 @@
+---
+import {getCollection} from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import _ from 'lodash'
+
+const posts = await getCollection('posts');
+const categories = posts.map((entry) => entry.data.category)
+const categoryCounts = _.countBy(categories)
+---
+
+<BaseLayout title="Categories">
+    <div class="mx-auto">
+        <h1 class="text-center text-5xl">Categories</h1>
+        <div class="mt-8">
+            {_.entries(categoryCounts).map(([category, count]) => (
+                    <a class="border-6 m-2 rounded text-xl" href={`/categories/${category}`}>
+                        {category}<sup>{count}</sup>
+                    </a>
+            ))}
+        </div>
+    </div>
+</BaseLayout>

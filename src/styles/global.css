@@ -1,0 +1,153 @@
+@import "callout.css";
+@import "codeblock.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply font-normal leading-normal;
+}
+
+p,
+ol,
+ul,
+dl,
+table {
+    @apply my-2 text-base;
+}
+
+h1 {
+    @apply font-extrabold mb-2 mt-6 text-3xl;
+}
+
+h2 {
+    @apply font-bold mb-2 mt-6 text-2xl;
+}
+
+h3 {
+    @apply font-semibold mb-2 mt-6 text-xl;
+}
+
+h4, h5 {
+    @apply font-medium mb-2 mt-4 text-xl;
+}
+
+strong, b {
+    @apply font-bold;
+}
+
+blockquote {
+    @apply border-l-2 text-gray-500 border-gray-500 px-4;
+}
+
+hr {
+    @apply my-4;
+}
+
+table {
+    @apply block mb-4 border-collapse overflow-x-auto text-left;
+}
+
+thead {
+    @apply border-b-2;
+}
+
+th {
+    @apply p-3 border-b-2 text-left break-words;
+}
+
+td {
+    @apply p-3 border-b text-left break-words;
+}
+
+a {
+    @apply text-blue-600 hover:text-gray-400 no-underline break-words;
+}
+
+pre {
+    @apply overflow-auto;
+}
+
+.post-content {
+    @apply leading-relaxed;
+}
+
+.post-content .highlight {
+    @apply mb-8 block leading-relaxed rounded font-mono;
+}
+
+.post-content .highlight pre {
+    @apply p-4 overflow-auto;
+}
+
+.post-content code {
+    @apply rounded bg-gray-300 px-2 py-px bg-opacity-75;
+}
+
+.post-content pre code {
+    @apply rounded bg-transparent px-0  font-normal whitespace-pre-wrap;
+}
+
+.post-content ul {
+    @apply list-inside list-disc;
+}
+
+.post-content ul li {
+    @apply relative pl-6;
+}
+
+.post-content ul li p {
+    @apply inline-block p-0 m-0;
+}
+
+.post-content img {
+    @apply block m-auto;
+}
+
+.post-content p {
+    @apply my-6;
+}
+
+.pagination {
+    @apply m-4 p-0 text-left flex justify-between;
+}
+
+.pagination li {
+    @apply list-none inline-block m-0 p-0;
+}
+
+.pagination .page-prev {
+    @apply mr-4 pr-4;
+}
+
+.pagination .page-item.page-prev {
+    @apply text-left;
+}
+
+.pagination .page-item.page-next {
+    @apply text-right;
+}
+
+figcaption {
+    @apply text-center text-sm text-gray-500
+}
+
+@layer base {
+    :root {
+        font-family: 'Open Sans Variable', sans-serif;
+        font-size: 1.125em;
+        line-height: 2.0;
+        scroll-behavior: smooth;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Open Sans Variable', sans-serif;
+    }
+}
+

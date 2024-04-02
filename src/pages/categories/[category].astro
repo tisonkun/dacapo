@@ -1,0 +1,39 @@
+---
+import type {CollectionEntry} from "astro:content";
+import {getCollection} from "astro:content";
+import BaseLayout from "@src/layouts/BaseLayout.astro";
+import {titleCase} from "title-case";
+import _ from "lodash";
+import DateTile from "../../components/DateTile.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection('posts')
+    const categories = _.groupBy(posts, (entry) => entry.data.category)
+    return _.entries(categories).map(([category, posts]) => ({
+        params: {category: category}, props: {posts, category}
+    }))
+}
+
+const {posts, category}: {
+    posts: CollectionEntry<'posts'>[]
+    category: string,
+} = Astro.props;
+---
+
+<BaseLayout title={titleCase(category)}>
+    <h1 class="text-center text-5xl">{titleCase(category)}</h1>
+    <ul>
+        {posts.map((entry) => (
+                <li class="grid grid-cols-12 mt-8">
+                    <DateTile date={entry.data.date}/>
+                    <div class="col-span-10">
+                        <h3 class="text-2xl leading-relaxed mb-0 mt-0">
+                            <a href={`/posts/${entry.slug}`}>
+                                {entry.data.title}
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+        ))}
+    </ul>
+</BaseLayout>
