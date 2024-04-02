@@ -1,6 +1,6 @@
-# NightSky Blog
+# Da Capo
 
-This repo hosts sources for https://tisonkun.io.
+My personal blogs. This repo hosts sources for https://tisonkun.io.
 
 ## License
 

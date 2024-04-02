@@ -1,0 +1,10 @@
+{
+  "origins": [
+    "https://tisonkun.io",
+    "https://dacapo.vercel.app"
+  ],
+  "originsRegex": [
+    "http://localhost:[0-9]+"
+  ],
+  "defaultCommentOrder": "newest"
+}
