@@ -2,15 +2,18 @@
 import {getCollection} from "astro:content";
 import BaseLayout from "@src/layouts/BaseLayout.astro"
 import _ from 'lodash'
+import PageMeta from "../../components/PageMeta.astro";
 
 const posts = await getCollection('posts');
 const tags = posts.flatMap((entry) => entry.data.tags)
 const tagCounts = _.countBy(tags)
+const title = "Tags"
 ---
 
-<BaseLayout title="Tags">
+<BaseLayout title={title}>
+    <PageMeta title={title} slot="meta"/>
     <div class="mx-auto">
-        <h1 class="text-center text-5xl">Tags</h1>
+        <h1 class="text-center text-5xl">{title}</h1>
         <div class="mt-8">
             {_.entries(tagCounts).map(([tag, count]) => (
                     <a class="border-6 m-2 rounded text-xl" href={`/tags/${tag}`}>

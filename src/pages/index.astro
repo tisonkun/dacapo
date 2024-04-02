@@ -1,12 +1,15 @@
 ---
 import {getCollection} from "astro:content";
 import BaseLayout from "@src/layouts/BaseLayout.astro"
-import DateTile from "../components/DateTile.astro";
+import DateTile from "@src/components/DateTile.astro";
+import PageMeta from "@src/components/PageMeta.astro";
 
 const posts = await getCollection('posts');
+const title = "Da Capo"
 ---
 
-<BaseLayout>
+<BaseLayout title={title}>
+    <PageMeta title={title} slot="meta"/>
     <ul>
         {posts.map(entry => (
                 <li class="grid grid-cols-12 mt-8">

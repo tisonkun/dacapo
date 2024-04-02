@@ -1,7 +1,3 @@
----
-title: About
----
-
 ### Hi there! I'm @tisonkun 👋.
 
 - 👯 I'm actively working on:

@@ -1,13 +1,17 @@
 ---
 // noinspection TypeScriptCheckImport
-import {Content, frontmatter} from "./_content.md"
+import {Content} from "./_content.md"
 import BaseLayout from "@src/layouts/BaseLayout.astro";
+import PageMeta from "@src/components/PageMeta.astro";
+
+const title = "About"
 ---
 
-<BaseLayout title="About">
+<BaseLayout title={title}>
+    <PageMeta title={title} slot="meta" />
     <article class="container pt-8">
         <header class="pb-4 mb-8 border-b">
-            <h1 class="my-2 text-black leading-tight">{frontmatter.title}</h1>
+            <h1 class="my-2 text-black leading-tight">{title}</h1>
         </header>
         <div class="post-content">
             <Content/>

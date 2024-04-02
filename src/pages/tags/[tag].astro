@@ -5,6 +5,7 @@ import BaseLayout from "@src/layouts/BaseLayout.astro";
 import {titleCase} from "title-case";
 import _ from "lodash";
 import DateTile from "../../components/DateTile.astro";
+import PageMeta from "../../components/PageMeta.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection('posts')
@@ -26,10 +27,12 @@ const {posts, tag}: {
     posts: CollectionEntry<'posts'>[]
     tag: string,
 } = Astro.props;
+const title = titleCase(tag)
 ---
 
-<BaseLayout title={titleCase(tag)}>
-    <h1 class="text-center text-5xl">{titleCase(tag)}</h1>
+<BaseLayout title={title}>
+    <PageMeta title={title} slot="meta"/>
+    <h1 class="text-center text-5xl">{title}</h1>
     <ul>
         {posts.map((entry) => (
                 <li class="grid grid-cols-12 mt-8">

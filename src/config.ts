@@ -1,5 +1,6 @@
 export const Site = {
-    url: import.meta.env.BASE_URL,
+    url: new URL(import.meta.env.SITE),
+    baseUrl: new URL(import.meta.env.SITE).origin,
 
     title: "Da Capo",
     description: "Async. Distributed Systems. Open Source.",
@@ -22,4 +23,9 @@ export const Site = {
             }
         ]
     }
+}
+
+export const Social = {
+    publicName: "Zili Chen",
+    twitterId: "@tisonkuncz",
 }

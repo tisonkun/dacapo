@@ -2,7 +2,9 @@
 import type {CollectionEntry} from "astro:content";
 import {getCollection} from 'astro:content';
 import BaseLayout from "@src/layouts/BaseLayout.astro";
-import Giscus from "../../components/Giscus.astro";
+import Giscus from "@src/components/Giscus.astro";
+import PostMeta from "../../components/PostMeta.astro";
+import {Site} from "@src/config";
 
 export async function getStaticPaths() {
     const posts = await getCollection('posts');
@@ -14,10 +16,24 @@ export async function getStaticPaths() {
 const {entry}: {
     entry: CollectionEntry<'posts'>
 } = Astro.props;
+const {slug} = Astro.params;
+
+const title = entry.data.title
+const description = undefined // post not yet have a description
+const frontmatter = entry.data
+const ogImageAbsoluteUrl = `${Site.baseUrl}/images/og.png`;
 const {Content} = await entry.render();
 ---
 
-<BaseLayout title={entry.data.title}>
+<BaseLayout title={title}>
+    <PostMeta
+            title={title}
+            description={description}
+            publishDate={frontmatter.date.toISOString()}
+            pagePath={`/posts/${slug}`}
+            ogImageAbsoluteUrl={ogImageAbsoluteUrl}
+            slot="meta"
+    />
     <article class="container pt-8">
         <header class="pb-4 mb-8 border-b">
             <h1 class="my-2 text-black leading-tight">{entry.data.title}</h1>

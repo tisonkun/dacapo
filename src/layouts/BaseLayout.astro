@@ -3,12 +3,10 @@ import "@src/styles/global.css"
 import Footer from "@src/components/Footer.astro"
 import Header from "@src/components/Header.astro"
 import HeaderMeta from "./HeaderMeta.astro"
-import {Site} from "@src/config"
-
 import '@fontsource-variable/open-sans'
 
 const {title: origTitle} = Astro.props;
-const title = origTitle ?? Site.title;
+const title = origTitle;
 ---
 
 <!DOCTYPE html>
@@ -19,6 +17,7 @@ const title = origTitle ?? Site.title;
     <meta name="generator" content={Astro.generator}/>
     <HeaderMeta/>
     <title>{title}</title>
+    <slot name="meta" />
 </head>
 <body class="flex flex-col min-h-screen max-w-4xl font-sans mx-4 lg:mx-auto xl:mx-auto leading-normal">
 <Header/>

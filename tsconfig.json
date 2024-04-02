@@ -11,6 +11,6 @@
         "src/*"
       ]
     },
-    "strictNullChecks": true,
+    "strictNullChecks": true
   }
 }
