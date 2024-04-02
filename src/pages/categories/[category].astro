@@ -1,11 +1,11 @@
 ---
 import type {CollectionEntry} from "astro:content";
 import {getCollection} from "astro:content";
-import BaseLayout from "@src/layouts/BaseLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import {titleCase} from "title-case";
 import _ from "lodash";
-import DateTile from "../../components/DateTile.astro";
-import PageMeta from "../../components/PageMeta.astro";
+import DateTile from "@/components/DateTile.astro";
+import PageMeta from "@/components/PageMeta.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection('posts')
