@@ -14,13 +14,17 @@ export const Site = {
         ],
         icons: [
             {
+                clz: "fas fa-rss",
+                url: "/rss.xml"
+            },
+            {
                 clz: "fab fa-github",
                 url: "https://github.com/tisonkun",
             },
             {
                 clz: "fab fa-twitter",
                 url: "https://twitter.com/tisonkuncz",
-            }
+            },
         ]
     }
 }
