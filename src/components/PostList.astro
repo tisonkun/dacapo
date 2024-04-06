@@ -1,4 +1,5 @@
 ---
+import _ from "lodash"
 import DateTile from "./DateTile.astro";
 import type {CollectionEntry} from "astro:content";
 
@@ -7,10 +8,11 @@ interface Props {
 }
 
 const {posts} = Astro.props;
+const sortedPosts = _.orderBy(posts, (post) => post.data.date, "desc")
 ---
 
 <ul>
-    {posts.map((entry) => (
+    {sortedPosts.map((entry) => (
             <li class="grid grid-cols-12 mt-8">
                 <DateTile date={entry.data.date}/>
                 <div class="col-span-10">

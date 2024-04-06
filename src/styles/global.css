@@ -101,6 +101,18 @@ pre {
     @apply inline-block p-0 m-0;
 }
 
+.post-content ol {
+    @apply list-inside list-decimal;
+}
+
+.post-content ol li {
+    @apply relative pl-6;
+}
+
+.post-content ol li p {
+    @apply inline-block p-0 m-0;
+}
+
 .post-content img {
     @apply block m-auto;
 }
