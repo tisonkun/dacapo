@@ -1,0 +1,28 @@
+---
+import DateTile from "./DateTile.astro";
+import type {CollectionEntry} from "astro:content";
+
+interface Props {
+    posts: CollectionEntry<'posts'>[],
+}
+
+const {posts} = Astro.props;
+---
+
+<ul>
+    {posts.map((entry) => (
+            <li class="grid grid-cols-12 mt-8">
+                <DateTile date={entry.data.date}/>
+                <div class="col-span-10">
+                    <h3 class="text-2xl leading-relaxed mb-0 mt-0">
+                        <a href={`/posts/${entry.slug}`}>
+                            {entry.data.title}
+                        </a>
+                    </h3>
+                    <span class="leading-relaxed">
+                        {entry.data.description}
+                    </span>
+                </div>
+            </li>
+    ))}
+</ul>

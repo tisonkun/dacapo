@@ -1,4 +1,8 @@
 ---
+interface Props {
+    date: Date,
+}
+
 const {date} = Astro.props
 const dateMonth = date.toLocaleDateString('default', { month: 'short' })
 const dateYearMonth = `${dateMonth} ${date.getFullYear()}`

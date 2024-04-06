@@ -5,6 +5,10 @@ import Header from "@/components/Header.astro"
 import HeaderMeta from "./HeaderMeta.astro"
 import '@fontsource-variable/open-sans'
 
+interface Props {
+    title: string
+}
+
 const {title: origTitle} = Astro.props;
 const title = origTitle;
 ---
