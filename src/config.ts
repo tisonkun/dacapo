@@ -8,9 +8,9 @@ export const Site = {
     menu: {
         navs: [
             {name: "Home", url: "/"},
-            {name: "About", url: "/about"},
             {name: "Categories", url: "/categories"},
             {name: "Tags", url: "/tags"},
+            {name: "About", url: "/about"},
         ],
         icons: [
             {
