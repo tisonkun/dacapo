@@ -7,6 +7,11 @@ import _ from "lodash";
 import PageMeta from "@/components/PageMeta.astro";
 import PostList from "@/components/PostList.astro";
 
+interface Props {
+    posts: CollectionEntry<'posts'>[]
+    category: string,
+}
+
 export async function getStaticPaths() {
     const posts = await getCollection('posts')
     const categories = _.groupBy(posts, (entry) => entry.data.category)
@@ -15,10 +20,7 @@ export async function getStaticPaths() {
     }))
 }
 
-const {posts, category}: {
-    posts: CollectionEntry<'posts'>[]
-    category: string,
-} = Astro.props;
+const {posts, category} = Astro.props;
 const title = titleCase(category)
 ---
 

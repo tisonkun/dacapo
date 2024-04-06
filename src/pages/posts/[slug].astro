@@ -6,6 +6,10 @@ import Giscus from "@/components/Giscus.astro";
 import PostMeta from "@/components/PostMeta.astro";
 import {Site} from "@/config";
 
+interface Props {
+    entry: CollectionEntry<'posts'>
+}
+
 export async function getStaticPaths() {
     const posts = await getCollection('posts');
     return posts.map(entry => ({
@@ -13,9 +17,7 @@ export async function getStaticPaths() {
     }));
 }
 
-const {entry}: {
-    entry: CollectionEntry<'posts'>
-} = Astro.props;
+const {entry} = Astro.props;
 const {slug} = Astro.params;
 
 const title = entry.data.title

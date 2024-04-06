@@ -7,6 +7,11 @@ import _ from "lodash";
 import PageMeta from "@/components/PageMeta.astro";
 import PostList from "@/components/PostList.astro";
 
+interface Props {
+    posts: CollectionEntry<'posts'>[]
+    tag: string,
+}
+
 export async function getStaticPaths() {
     const posts = await getCollection('posts')
     let tags: Record<string, CollectionEntry<'posts'>[]> = {}
@@ -23,10 +28,7 @@ export async function getStaticPaths() {
     }))
 }
 
-const {posts, tag}: {
-    posts: CollectionEntry<'posts'>[]
-    tag: string,
-} = Astro.props;
+const {posts, tag} = Astro.props;
 const title = titleCase(tag)
 ---
 

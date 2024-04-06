@@ -2,9 +2,11 @@
 import DateTile from "./DateTile.astro";
 import type {CollectionEntry} from "astro:content";
 
-const {posts}: {
-    posts: CollectionEntry<'posts'>[]
-} = Astro.props;
+interface Props {
+    posts: CollectionEntry<'posts'>[],
+}
+
+const {posts} = Astro.props;
 ---
 
 <ul>
