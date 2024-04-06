@@ -20,6 +20,8 @@ const {slug} = Astro.params;
 
 const title = entry.data.title
 const description = entry.data.description
+const category = entry.data.category
+const tags = entry.data.tags
 const frontmatter = entry.data
 const ogImageAbsoluteUrl = `${Site.baseUrl}/images/og.png`;
 const {Content} = await entry.render();
@@ -40,6 +42,22 @@ const {Content} = await entry.render();
         </header>
         <div class="post-content">
             <Content/>
+        </div>
+        <div class="flex flex-row">
+            <p class="basis-1/12">Category</p>
+            <p class="grow">
+                <a class="ml-2 inline-block border border-blue-600 px-2 rounded"
+                   href={`/categories/${category}`}> {category} </a>
+            </p>
+        </div>
+        <div class="flex flex-row">
+            <p class="basis-1/12">Tags</p>
+            <p class="grow">
+                {tags.map((tag) => (
+                        <a class="mt-1 ml-2 inline-block border border-blue-600 px-2 rounded"
+                           href={`/tags/${tag}`}> {tag} </a>
+                ))}
+            </p>
         </div>
     </article>
     <hr class="border-gray-200 mt-10 mb-4">
