@@ -7,6 +7,10 @@ import PageMeta from "@/components/PageMeta.astro";
 const posts = await getCollection('posts');
 const categories = posts.map((entry) => entry.data.category)
 const categoryCounts = _.countBy(categories)
+const sortedCategories = _.chain(categoryCounts)
+    .map((count, category) => ({category, count}))
+    .orderBy(["count", "category"], "desc")
+    .value()
 const title = "Categories"
 ---
 
@@ -15,7 +19,7 @@ const title = "Categories"
     <div class="mx-auto">
         <h1 class="text-center text-5xl">{title}</h1>
         <div class="mt-8">
-            {_.entries(categoryCounts).map(([category, count]) => (
+            {sortedCategories.map(({category, count}) => (
                     <a class="border-6 m-2 rounded text-xl" href={`/categories/${category}`}>
                         {category}<sup>{count}</sup>
                     </a>
