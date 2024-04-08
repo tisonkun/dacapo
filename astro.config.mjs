@@ -4,6 +4,8 @@ import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import remarkDirective from "remark-directive";
 import remarkCalloutDirectives from '@microflash/remark-callout-directives';
+import expressiveCode from "astro-expressive-code";
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 
 const port = 4000;
 const isBuild = process.env.npm_lifecycle_script?.includes("astro build");
@@ -19,7 +21,7 @@ export default defineConfig({
         remarkPlugins: [remarkDirective, [remarkCalloutDirectives, {
             aliases: {
                 info: "assert",
-                commend: "tip",
+                commend: "tip"
             },
             callouts: {
                 commend: {
@@ -30,12 +32,12 @@ export default defineConfig({
                 }
             }
         }]],
-        shikiConfig: {
-            theme: 'github-light',
-        }
     },
     site: baseUrl,
     integrations: [tailwind({
         applyBaseStyles: false
-    }), sitemap(), mdx()]
+    }), sitemap(), expressiveCode({
+        themes: ['solarized-light'],
+        plugins: [pluginLineNumbers()],
+    }), mdx()]
 });
