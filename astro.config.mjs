@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import remarkDirective from "remark-directive";
 import remarkCalloutDirectives from '@microflash/remark-callout-directives';
-import {stripLastEmptyLine} from "./packages/ShikiTransformers/strip-last-empty-line.ts";
 
 const port = 4000;
 const isBuild = process.env.npm_lifecycle_script?.includes("astro build");
@@ -33,7 +32,6 @@ export default defineConfig({
         }]],
         shikiConfig: {
             theme: 'github-light',
-            transformers: [stripLastEmptyLine()]
         }
     },
     site: baseUrl,
