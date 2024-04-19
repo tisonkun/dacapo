@@ -16,7 +16,7 @@
   - [Apache Curator](https://curator.apache.org/docs/about) (Committer, PMC Member)
   - [Apache Flink](https://flink.apache.org/) (Committer)
   - [Apache Pulsar](https://pulsar.apache.org/) (Committer, PMC Member)
-  - [Apache ZooKeeper](https://zookeeper.apache.org/) (Committer)
+  - [Apache ZooKeeper](https://zookeeper.apache.org/) (Committer, PMC Member)
   - [GreptimeDB](https://github.com/GreptimeTeam/greptimedb) (Team Member)
   - [Raku (Perl 6)](https://github.com/Raku) (Former Team Member)
   - [TiDB](https://github.com/pingcap/tidb) (Former Team Member)
