@@ -4,6 +4,10 @@ import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import remarkDirective from "remark-directive";
 import remarkCalloutDirectives from '@microflash/remark-callout-directives';
+import remarkToc from 'remark-toc';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeToc from "rehype-toc";
 import expressiveCode from "astro-expressive-code";
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 
@@ -31,7 +35,8 @@ export default defineConfig({
                     title: "Info"
                 }
             }
-        }]],
+        }], [remarkToc, { tight: true, ordered: true } ]],
+        rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'append' }], rehypeToc],
     },
     site: baseUrl,
     integrations: [tailwind({
