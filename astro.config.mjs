@@ -4,8 +4,11 @@ import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import remarkDirective from "remark-directive";
 import remarkCalloutDirectives from '@microflash/remark-callout-directives';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import expressiveCode from "astro-expressive-code";
-import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
+import {pluginLineNumbers} from '@expressive-code/plugin-line-numbers'
+import {h} from "hastscript";
 
 const port = 4000;
 const isBuild = process.env.npm_lifecycle_script?.includes("astro build");
@@ -31,6 +34,12 @@ export default defineConfig({
                     title: "Info"
                 }
             }
+        }]],
+        rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, {
+            behavior: 'append',
+            content(_node) {
+                return [h('i.fa-solid.fa-link.header-link')]
+            },
         }]],
     },
     site: baseUrl,

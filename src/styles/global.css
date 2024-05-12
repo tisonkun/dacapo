@@ -141,7 +141,11 @@ pre {
 }
 
 figcaption {
-    @apply text-center text-sm text-gray-500
+    @apply text-center text-sm text-gray-500;
+}
+
+.header-link {
+    @apply float-right text-gray-500;
 }
 
 @layer base {
