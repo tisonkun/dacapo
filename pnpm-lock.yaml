@@ -35,6 +35,9 @@ dependencies:
   astro-expressive-code:
     specifier: ^0.34.1
     version: 0.34.1(astro@4.5.12)
+  hastscript:
+    specifier: ^9.0.0
+    version: 9.0.0
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
