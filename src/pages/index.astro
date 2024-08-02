@@ -3,8 +3,9 @@ import {getCollection} from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import PageMeta from "@/components/PageMeta.astro";
 import PostList from "@/components/PostList.astro";
+import {getNonHiddenPosts} from "@/lib/post";
 
-const posts = await getCollection('posts');
+const posts = await getNonHiddenPosts();
 const title = "Da Capo"
 ---
 

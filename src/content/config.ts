@@ -1,4 +1,4 @@
-import { z, defineCollection } from 'astro:content'
+import {z, defineCollection} from 'astro:content'
 
 const postCollection = defineCollection({
     type: 'content',
@@ -8,6 +8,7 @@ const postCollection = defineCollection({
         description: z.optional(z.string()),
         category: z.string(),
         tags: z.array(z.string()),
+        hidden: z.boolean().optional(),
     }),
 });
 

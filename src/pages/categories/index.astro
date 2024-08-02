@@ -1,16 +1,16 @@
 ---
-import {getCollection} from "astro:content";
+import {getNonHiddenPosts} from "@/lib/post";
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import _ from 'lodash'
 import PageMeta from "@/components/PageMeta.astro";
 
-const posts = await getCollection('posts');
+const posts = await getNonHiddenPosts();
 const categories = posts.map((entry) => entry.data.category)
 const categoryCounts = _.countBy(categories)
 const sortedCategories = _.chain(categoryCounts)
-    .map((count, category) => ({category, count}))
-    .orderBy(["count", "category"], "desc")
-    .value()
+.map((count, category) => ({category, count}))
+.orderBy(["count", "category"], "desc")
+.value()
 const title = "Categories"
 ---
 

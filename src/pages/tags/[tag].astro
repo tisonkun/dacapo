@@ -1,6 +1,6 @@
 ---
 import type {CollectionEntry} from "astro:content";
-import {getCollection} from "astro:content";
+import {getNonHiddenPosts} from "@/lib/post";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import {titleCase} from "title-case";
 import _ from "lodash";
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-    const posts = await getCollection('posts')
+    const posts = await getNonHiddenPosts()
     let tags: Record<string, CollectionEntry<'posts'>[]> = {}
     for (let post of posts) {
         for (let tag of post.data.tags) {

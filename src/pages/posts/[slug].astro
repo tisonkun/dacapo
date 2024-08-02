@@ -1,17 +1,17 @@
 ---
 import type {CollectionEntry} from "astro:content";
-import {getCollection} from 'astro:content';
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Giscus from "@/components/Giscus.astro";
 import PostMeta from "@/components/PostMeta.astro";
 import {Site} from "@/config";
+import {getAllPosts} from "@/lib/post";
 
 interface Props {
     entry: CollectionEntry<'posts'>
 }
 
 export async function getStaticPaths() {
-    const posts = await getCollection('posts');
+    const posts = await getAllPosts();
     return posts.map(entry => ({
         params: {slug: entry.slug}, props: {entry},
     }));
