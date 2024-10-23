@@ -23,13 +23,13 @@ export const Site = {
             },
             {
                 clz: "fab fa-twitter",
-                url: "https://twitter.com/tisonkuncz",
+                url: "https://twitter.com/tison1096",
             },
         ]
     }
 }
 
 export const Social = {
-    publicName: "Zili Chen",
-    twitterId: "@tisonkuncz",
+    publicName: "@tison",
+    twitterId: "@tison1096",
 }
