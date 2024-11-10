@@ -26,7 +26,7 @@ const category = entry.data.category
 const tags = entry.data.tags
 const frontmatter = entry.data
 const ogImageAbsoluteUrl = `${Site.baseUrl}/images/og.png`;
-const {Content} = await entry.render();
+const {Content, headings} = await entry.render();
 ---
 
 <BaseLayout title={title}>
@@ -38,7 +38,15 @@ const {Content} = await entry.render();
             ogImageAbsoluteUrl={ogImageAbsoluteUrl}
             slot="meta"
     />
+
     <article class="container pt-8">
+        <div class="fixed left-4 max-w-40 text-xs">
+            <nav>
+                {headings.map((heading) => (
+                        <a class="block py-0.5" href={`#${heading.slug}`}>{heading.text}</a>
+                ))}
+            </nav>
+        </div>
         <header class="pb-4 mb-8 border-b">
             <h1 class="my-2 text-black leading-tight">{entry.data.title}</h1>
         </header>

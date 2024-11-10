@@ -19,7 +19,7 @@
     "@expressive-code/plugin-line-numbers": "^0.34.1",
     "@fontsource-variable/open-sans": "^5.0.28",
     "@microflash/remark-callout-directives": "^4.1.0",
-    "astro": "^4.5.12",
+    "astro": "^4.16.1",
     "astro-expressive-code": "^0.34.1",
     "hastscript": "^9.0.0",
     "lodash": "^4.17.21",
