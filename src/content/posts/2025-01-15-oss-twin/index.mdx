@@ -27,7 +27,7 @@ Here are several open-source projects that we have heavily used to build ScopeDB
 * ScopeDB manages metadata with relational database services. We leverage [SQLx](https://github.com/launchbadge/sqlx) and [SeaQuery](https://github.com/SeaQL/sea-query) to interact efficiently and ergonomically with relational databases.
 * ScopeDB supports multiple [data types](https://www.scopedb.io/reference/datatypes-overview). We leverage [Jiff](https://github.com/BurntSushi/jiff) with its `Timestamp` and `SignedDuration` types for in-memory calculations, and [ordered-float](https://github.com/reem/rust-ordered-float) to extend the floating point numbers with total ordering.
 
-UPDATE: Filtered internal crates, the open-source dependencies are 623 in total. Check out this [Gist](https://gist.github.com/tisonkun/06550d2dcd9cf6551887ee6305e92edc) to see if your project is one of them :D (Note that a dependency in the lockfile may not be used in the final binary)
+UPDATE: Filtered internal crates, the open-source dependencies are 623 in total. Check out this [Gist](https://gist.github.com/tisonkun/06550d2dcd9cf6551887ee6305e92edc) to see if your project is one of them \:D (Note that a dependency in the lockfile may not be used in the final binary)
 
 Besides, during the development of ScopeDB, we spawned a few common libraries and made them open-source. We have developed a message queue demo system as its open-source twin.
 
@@ -38,14 +38,14 @@ In the following sections, I will discuss how we got involved and contributed to
 You can start a ScopeDB playground with the following command:
 
 ```shell
-git clone https://github.com/scopedb/scopedb-sdk.git
-docker compose -f ./scopedb-sdk/dev/docker-compose.yml up
+git clone https://github.com/scopedb/community.git
+docker compose -f ./community/playground/docker-compose.yml up -d
 ```
 
 Then, you can connect the playground with the command-line tool:
 
 ```shell
-docker run -it --rm --entrypoint /bin/scopeql --network host scopedb/scopedb:edge
+docker run -it --rm --entrypoint /bin/scopeql --network host scopedb/scopedb
 ```
 
 Now, please read the [reference](https://www.scopedb.io/reference/functions-aggregate) and try it out!
