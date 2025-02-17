@@ -2,9 +2,9 @@
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import PageMeta from "@/components/PageMeta.astro";
 import PostList from "@/components/PostList.astro";
-import {getNonHiddenPosts} from "@/lib/post";
+import {getListedPosts} from "@/lib/post";
 
-const posts = await getNonHiddenPosts();
+const posts = await getListedPosts();
 const title = "Da Capo"
 ---
 

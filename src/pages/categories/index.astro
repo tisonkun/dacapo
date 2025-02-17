@@ -1,10 +1,10 @@
 ---
-import {getNonHiddenPosts} from "@/lib/post";
+import {getListedPosts} from "@/lib/post";
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import _ from 'lodash'
 import PageMeta from "@/components/PageMeta.astro";
 
-const posts = await getNonHiddenPosts();
+const posts = await getListedPosts();
 const categories = posts.map((entry) => entry.data.category)
 const categoryCounts = _.countBy(categories)
 const sortedCategories = _.chain(categoryCounts)

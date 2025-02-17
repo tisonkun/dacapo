@@ -9,6 +9,7 @@ const postCollection = defineCollection({
         category: z.string(),
         tags: z.array(z.string()),
         hidden: z.boolean().optional(),
+        draft: z.boolean().optional(),
     }),
 });
 

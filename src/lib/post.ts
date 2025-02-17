@@ -1,11 +1,12 @@
 import {getCollection} from "astro:content";
 
-export async function getNonHiddenPosts() {
+export async function getListedPosts() {
     const posts = await getAllPosts();
     return posts.filter((entry) => !entry.data.hidden);
 }
 
 export async function getAllPosts() {
-    return await getCollection('posts');
+    const posts = await getCollection('posts');
+    return posts.filter((entry) => !entry.data.draft);
 }
 
